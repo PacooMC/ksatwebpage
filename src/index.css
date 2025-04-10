@@ -1,0 +1,56 @@
+@tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        /* Background Image */
+        background-image: url('/src/Background-image.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Crucial for consistent background */
+
+        /* Fallback background color */
+        @apply bg-[#0D1117];
+
+        /* Default text color and font */
+        @apply text-gray-300 font-sans;
+
+        /* Ensure body takes full height */
+        min-height: 100vh;
+      }
+
+      /* Simple scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        @apply bg-gray-800; /* Darker track */
+      }
+      ::-webkit-scrollbar-thumb {
+        @apply bg-cyan-600 rounded; /* Accent color thumb */
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        @apply bg-cyan-500;
+      }
+
+      ::selection {
+        @apply bg-cyan-500 text-black;
+      }
+    }
+
+    /* Remove complex background animations if not needed */
+    /* Keep spin-slow if used elsewhere, otherwise remove */
+    @keyframes spin-slow {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 5s linear infinite;
+    }
